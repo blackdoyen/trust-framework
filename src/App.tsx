@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Moon, Sun, Github, Code2, Zap, Box, Cpu, ChevronDown, Brain, Lock, Workflow, Terminal, RefreshCw, Gauge, Rocket } from 'lucide-react';
+import { Menu, X, Moon, Sun, Github, Code2, Zap, Box, Cpu, ChevronDown, Brain, Lock, Workflow, Terminal, RefreshCw, Gauge, Rocket, Reddit } from 'lucide-react';
 import { CodeEditor } from './components/CodeEditor';
 
 const features = [
@@ -357,56 +357,56 @@ impl DataProcessor {
 
       
       <footer className="glass mt-16 py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Code2 className="w-5 h-5" />
-                <span className="font-bold text-sm">TRust</span>
-              </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                TypeScript-to-Rust Performance Bridge
-              </p>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-4">Documentation</h4>
-              <ul className="space-y-2 text-xs">
-                <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary">Getting Started</a></li>
-                <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary">API Reference</a></li>
-                <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary">Examples</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-4">Community</h4>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <a href="https://github.com/blackdoyen/trust" 
-                     className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a href="https://reddit.com/r/trustlang" 
-                     className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
-                    <Reddit className="w-4 h-4" />
-                    Reddit
-                  </a>
-                </li>
-                <li>
-                  <a href="https://discord.gg/trustlang" 
-                     className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
-                    Discord
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-xs text-gray-600 dark:text-gray-400">
-            © {new Date().getFullYear()} TRust. All rights reserved.
-          </div>
+  <div className="max-w-7xl mx-auto">
+    <div className="grid md:grid-cols-4 gap-8">
+      <div>
+        <div className="flex items-center gap-2 mb-4">
+          <Code2 className="w-5 h-5" />
+          <span className="font-bold text-sm">TRust</span>
         </div>
-      </footer>
+        <p className="text-xs text-gray-600 dark:text-gray-400">
+          TypeScript-to-Rust Performance Bridge
+        </p>
+      </div>
+      <div>
+        <h4 className="text-sm font-semibold mb-4">Documentation</h4>
+        <ul className="space-y-2 text-xs">
+          <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary">Getting Started</a></li>
+          <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary">API Reference</a></li>
+          <li><a href="#" className="text-gray-600 dark:text-gray-400 hover:text-primary">Examples</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="text-sm font-semibold mb-4">Community</h4>
+        <ul className="space-y-2 text-xs">
+          <li>
+            <a href="https://github.com/blackdoyen/trust" 
+               className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
+              <Github className="w-4 h-4" />
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://reddit.com/r/trustlang" 
+               className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
+              <Reddit className="w-4 h-4" />
+              Reddit
+            </a>
+          </li>
+          <li>
+            <a href="https://discord.gg/trustlang" 
+               className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
+              Discord
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-xs text-gray-600 dark:text-gray-400">
+      © {new Date().getFullYear()} TRust. All rights reserved.
+    </div>
+  </div>
+</footer>
     </div>
   );
 }
