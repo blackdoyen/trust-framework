@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-shadow: rgba(31, 38, 135, 0.07);
+  --primary: #FF3E00;
+  --secondary: #40B3FF;
+}
+
+.dark {
+  --glass-bg: rgba(17, 25, 40, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.125);
+  --glass-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  @apply antialiased text-xs bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+}
+
+.glass {
+  @apply backdrop-blur-lg border border-solid;
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.navbar {
+  @apply fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 px-4 py-3 rounded-2xl;
+  transform: translateX(-50%);
+  will-change: transform;
+}
+
+.navbar .nav-link {
+  @apply text-xs font-medium transition-colors duration-200;
+}
+
+.light-rays {
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 80%),
+              linear-gradient(45deg, rgba(255,182,255,0.1) 0%, transparent 70%),
+              linear-gradient(-45deg, rgba(182,255,255,0.1) 0%, transparent 70%);
+  filter: blur(40px);
+  opacity: 0.4;
+}
+
+.dark .light-rays {
+  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.2) 0%, transparent 80%),
+              linear-gradient(45deg, rgba(100,0,100,0.2) 0%, transparent 70%),
+              linear-gradient(-45deg, rgba(0,100,100,0.2) 0%, transparent 70%);
+}
+
+.code-editor {
+  @apply font-mono text-[13px] leading-relaxed rounded-xl overflow-hidden;
+  font-family: 'Fira Code', monospace;
+  background: rgba(30, 30, 30, 0.95);
+}
+
+.code-editor-header {
+  @apply flex items-center gap-2 px-4 py-2 bg-black/20;
+}
+
+.code-editor-dot {
+  @apply w-2.5 h-2.5 rounded-full;
+}
+
+.code-editor-content {
+  @apply p-4 overflow-x-auto;
+}
+
+.code-editor-content code {
+  @apply text-gray-200;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-xl text-xs font-medium transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-primary to-secondary text-white;
+  background-size: 200% auto;
+}
+
+.btn-primary:hover {
+  background-position: right center;
+}
+
+.btn-glass {
+  @apply glass text-gray-900 dark:text-white;
+}
+
+.feature-card {
+  @apply glass p-6 rounded-xl relative overflow-hidden;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+}
+
+.feature-icon {
+  @apply w-8 h-8 mb-4 text-black dark:text-white;
+}
+
+.faq-item {
+  @apply glass rounded-xl mb-3 overflow-hidden;
+}
+
+.faq-question {
+  @apply p-4 flex justify-between items-center cursor-pointer;
+}
+
+.faq-answer {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+}
+
+/* Syntax highlighting */
+.token.comment { color: #6A9955; }
+.token.string { color: #CE9178; }
+.token.number { color: #B5CEA8; }
+.token.keyword { color: #569CD6; }
+.token.function { color: #DCDCAA; }
+.token.operator { color: #D4D4D4; }
+.token.decorator { color: #DCDCAA; }
