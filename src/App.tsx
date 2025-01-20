@@ -32,6 +32,16 @@ const features = [
     icon: <Workflow className="feature-icon" />,
     title: "Developer Experience",
     description: "Seamless integration with existing tooling, hot reload support, and detailed performance insights."
+  },
+  {
+    icon: <Terminal className="feature-icon" />,
+    title: "Zero Config Setup",
+    description: "Get started in minutes with zero configuration. TRust automatically detects and optimizes performance-critical code."
+  },
+  {
+    icon: <RefreshCw className="feature-icon" />,
+    title: "Hot Reload Support",
+    description: "Instant feedback during development with hot module replacement for both TypeScript and Rust code."
   }
 ];
 
@@ -77,6 +87,21 @@ class AnalyticsEngine {
       .reduce(combineMetrics);
   }
 }`
+  },
+  {
+    title: "Machine Learning",
+    description: "Run complex ML algorithms with native performance using Rust's parallel processing capabilities.",
+    icon: <Brain className="w-6 h-6 text-primary mb-4" />,
+    code: `@trust.worker
+class MLProcessor {
+  @rust.parallel
+  trainModel(dataset: TrainingData[]): Model {
+    return dataset
+      .partition(4)
+      .map(batch => processBatch(batch))
+      .reduce(mergeResults);
+  }
+}`
   }
 ];
 
@@ -96,6 +121,14 @@ const faqs = [
   {
     question: "Can I use TRust with my existing framework?",
     answer: "Yes! TRust is framework-agnostic and works seamlessly with React, Vue, Angular, and other JavaScript frameworks. We provide specific integrations and examples for popular frameworks to get you started quickly."
+  },
+  {
+    question: "How does state synchronization work?",
+    answer: "TRust maintains a synchronized state between TypeScript and Rust using a zero-copy bridge. Changes in either language are automatically reflected in the other with minimal overhead."
+  },
+  {
+    question: "What's the deployment process like?",
+    answer: "TRust integrates with your existing build pipeline. During production builds, it automatically compiles marked code to Rust, generates WASM, and bundles everything together."
   }
 ];
 
@@ -112,6 +145,16 @@ function App() {
   return (
     <div className="min-h-screen">
       <div className="light-rays fixed inset-0 pointer-events-none"></div>
+
+      {/* SVG Background Pattern */}
+      <div className="svg-background">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.2"/>
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
       
       {/* Navbar */}
       <nav className="navbar glass">
@@ -312,10 +355,10 @@ impl DataProcessor {
         </div>
       </section>
 
-      {/* Footer */}
+      
       <footer className="glass mt-16 py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Code2 className="w-5 h-5" />
@@ -336,17 +379,26 @@ impl DataProcessor {
             <div>
               <h4 className="text-sm font-semibold mb-4">Community</h4>
               <ul className="space-y-2 text-xs">
-                <li><a href="https://github.com/blackdoyen/trust" className="text-gray-600 dark:text-gray-400 hover:text-primary">GitHub</a></li>
-                <li><a href="https://discord.gg/trustframework" className="text-gray-600 dark:text-gray-400 hover:text-primary">Discord</a></li>
-                <li><a href="https://reddit.com/u/trustframework" className="text-gray-600 dark:text-gray-400 hover:text-primary">Reddit</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-xs">
-                <li><a href="#nil" className="text-gray-600 dark:text-gray-400 hover:text-primary">Privacy Policy</a></li>
-                <li><a href="#nil" className="text-gray-600 dark:text-gray-400 hover:text-primary">Terms of Service</a></li>
-                <li><a href="#nil" className="text-gray-600 dark:text-gray-400 hover:text-primary">License</a></li>
+                <li>
+                  <a href="https://github.com/blackdoyen/trust" 
+                     className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
+                    <Github className="w-4 h-4" />
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a href="https://reddit.com/r/trustlang" 
+                     className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
+                    <Reddit className="w-4 h-4" />
+                    Reddit
+                  </a>
+                </li>
+                <li>
+                  <a href="https://discord.gg/trustlang" 
+                     className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary">
+                    Discord
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

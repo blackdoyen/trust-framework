@@ -6,22 +6,22 @@
 @tailwind utilities;
 
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.2);
   --glass-shadow: rgba(31, 38, 135, 0.07);
   --primary: #FF3E00;
   --secondary: #40B3FF;
 }
 
 .dark {
-  --glass-bg: rgba(17, 25, 40, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.125);
+  --glass-bg: rgba(17, 25, 40, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --glass-shadow: rgba(0, 0, 0, 0.1);
 }
 
 body {
   font-family: 'Space Grotesk', sans-serif;
-  @apply antialiased text-xs bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+  @apply antialiased text-xs bg-white text-gray-900 dark:bg-gray-900 dark:text-white overflow-x-hidden;
 }
 
 .glass {
@@ -35,6 +35,8 @@ body {
   @apply fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 px-4 py-3 rounded-2xl;
   transform: translateX(-50%);
   will-change: transform;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .navbar .nav-link {
@@ -56,7 +58,7 @@ body {
 }
 
 .code-editor {
-  @apply font-mono text-[13px] leading-relaxed rounded-xl overflow-hidden;
+  @apply font-mono text-[13px] leading-relaxed rounded-xl overflow-hidden w-full;
   font-family: 'Fira Code', monospace;
   background: rgba(30, 30, 30, 0.95);
 }
@@ -71,10 +73,24 @@ body {
 
 .code-editor-content {
   @apply p-4 overflow-x-auto;
+  max-width: 100vw;
+}
+
+.code-editor-content pre {
+  @apply m-0;
 }
 
 .code-editor-content code {
-  @apply text-gray-200;
+  @apply text-gray-200 whitespace-pre-wrap break-words;
+}
+
+@media (max-width: 768px) {
+  .code-editor {
+    font-size: 11px;
+  }
+  .code-editor-content {
+    padding: 0.75rem;
+  }
 }
 
 .btn {
@@ -97,6 +113,9 @@ body {
 .feature-card {
   @apply glass p-6 rounded-xl relative overflow-hidden;
   transition: transform 0.3s ease;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .feature-card:hover {
@@ -109,6 +128,9 @@ body {
 
 .faq-item {
   @apply glass rounded-xl mb-3 overflow-hidden;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .faq-question {
@@ -154,3 +176,40 @@ body {
 .token.function { color: #DCDCAA; }
 .token.operator { color: #D4D4D4; }
 .token.decorator { color: #DCDCAA; }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .use-case-grid {
+    @apply flex flex-col;
+  }
+  
+  .use-case-item {
+    @apply flex-col;
+  }
+  
+  .use-case-content {
+    @apply w-full;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse-animation {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+/* SVG Background */
+.svg-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.1;
+  pointer-events: none;
+}
